@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.row {
+    display: flex;
+    flex: 1 1 30px;
+    min-height: 30px;
+    max-width: 30px;
+    outline-color: rgb(166, 163, 163);
+    outline-style: solid;
+    outline-width: .5px;
+}
+
