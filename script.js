@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 
-//Makes div's for a grid 16 by 16
+//Makes div's for a grid of specified rows and columns
 function makeGrid(rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
@@ -14,9 +14,18 @@ function makeGrid(rows, cols) {
 makeGrid(16,16);
 
 const mainGrid = document.querySelectorAll('div')
+let trigger = false;
 
 mainGrid.forEach((gridCell) => {
     gridCell.addEventListener('mouseover', () => {
-    gridCell.style.backgroundColor = "black";
+        if (trigger === true) {
+        gridCell.style.backgroundColor = "black";
+        }
+    });
+    document.addEventListener('mousedown',function() {
+        trigger = true;
+    });
+    document.addEventListener('mouseup', function() {
+        trigger = false;
     });
 });
