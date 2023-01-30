@@ -12,3 +12,11 @@ function makeGrid(rows, cols) {
 };
 
 makeGrid(16,16);
+
+const mainGrid = document.querySelectorAll('div')
+
+mainGrid.forEach((gridCell) => {
+    gridCell.addEventListener('mouseover', () => {
+    gridCell.style.backgroundColor = "black";
+    });
+});
