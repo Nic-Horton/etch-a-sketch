@@ -2,9 +2,6 @@ const container = document.querySelector('#container');
 
 //Make div's for a grid of specified rows and columns and clears out when recalled
 function makeGrid(rows, cols) {
-    while (container.lastElementChild) {
-        container.removeChild(container.lastElementChild);
-      };
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (i = 0; i < (rows * cols); i++) {
@@ -13,13 +10,15 @@ function makeGrid(rows, cols) {
     };
 };
 
+function deleteGrid(){
+    container.innerHTML= '';
+}
+
 const colorButton = document.getElementById('color');
 colorButton.innerText = "Rainbow";
 const noColorButton = document.getElementById('noColor');
 noColorButton.innerText = "Black"
 
-makeGrid(16,16);
-paint();
 // Depending on which button is pressed determines color
 if(true) {
     colorButton.addEventListener('click', () => {
@@ -97,10 +96,11 @@ output.innerHTML = slider.value + " x " + slider.value;
 //Changes total number of grid squares
 slider.oninput = function() {
     if (this.value % 8 == 0 ) {
+    deleteGrid();
     output.innerHTML = this.value + " x " + this.value;
     makeGrid(this.value,this.value);
+    document.getElementById('noColor').click();
     }
-    paint();
 }
 
 const resetButton = document.getElementById('reset');
@@ -109,3 +109,7 @@ resetButton.addEventListener('click', () => {
     resetPaint();
 });
 
+window.onload = () => {
+makeGrid(16,16);
+paint();
+};
