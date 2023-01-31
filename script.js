@@ -11,9 +11,36 @@ function makeGrid(rows, cols) {
         let cell = document.createElement("div");
         container.appendChild(cell).className = "gridCell";
     };
-    paint();
 };
+
+const colorButton = document.getElementById('color');
+colorButton.innerText = "Rainbow";
+const noColorButton = document.getElementById('noColor');
+noColorButton.innerText = "Black"
+
 makeGrid(16,16);
+paint();
+// Depending on which button is pressed determines color
+if(true) {
+    colorButton.addEventListener('click', () => {
+        paintRainbow(getColor());
+    });
+}
+if(true) {
+    noColorButton.addEventListener('click', () => {
+        paint();
+    });
+}
+
+//function to create random color
+function getColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
 //Add paint feature to grid under conditions
 function paint() {
@@ -24,6 +51,26 @@ const fullGrid = document.querySelectorAll('div.gridCell')
         gridCell.addEventListener('mousemove', () => {
             if (trigger === true) {
             gridCell.style.backgroundColor = "black";
+        }
+        });
+        document.addEventListener('mousedown',function() {
+            trigger = true;
+        });
+        document.addEventListener('mouseup', function() {
+            trigger = false;
+        });
+    });
+}
+
+//This paint function allows random color painting
+function paintRainbow(color) {
+    const fullGrid = document.querySelectorAll('div.gridCell')
+    let trigger = false;
+    fullGrid.forEach((gridCell) => {
+        gridCell.addEventListener('mousemove', () => {
+            if (trigger === true) {
+            color = getColor();
+            gridCell.style.backgroundColor = color;
         }
         });
         document.addEventListener('mousedown',function() {
@@ -53,6 +100,7 @@ slider.oninput = function() {
     output.innerHTML = this.value + " x " + this.value;
     makeGrid(this.value,this.value);
     }
+    paint();
 }
 
 const resetButton = document.getElementById('reset');

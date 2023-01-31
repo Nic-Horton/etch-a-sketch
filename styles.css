@@ -19,7 +19,7 @@ body {
     text-align: center;
 }
 
-#reset {
+button {
     width: 150px;
     height: 50px;
     padding: 10px;
