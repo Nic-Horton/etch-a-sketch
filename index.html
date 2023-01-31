@@ -9,22 +9,25 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="container"></div>
-    <div id="buttonsContainer">
-      <div class="slidecontainer">
-        <input
-          type="range"
-          min="4"
-          max="64"
-          value="16"
-          class="slider"
-          id="myRange"
-        />
-        <span id="output"></span>
+    <h1>Etch-a-Sketch</h1>
+    <span class="capsule">
+      <div id="container"></div>
+      <div id="buttonsContainer">
+        <div class="slideContainer">
+          <input
+            type="range"
+            min="4"
+            max="64"
+            value="16"
+            class="slider"
+            id="myRange"
+          />
+          <p><span id="output"></span></p>
+        </div>
+        <button id="reset"></button>
+        <button id="color"></button>
+        <button id="noColor"></button>
       </div>
-      <button id="reset"></button>
-      <button id="color"></button>
-      <button id="noColor"></button>
-    </div>
+    </span>
   </body>
 </html>

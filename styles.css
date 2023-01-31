@@ -2,10 +2,40 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    background-color: beige;
 }
+p {
+    margin: 0px;
+    margin-top: 5px;
+    padding: 0px;
+    font-size: large;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 75px;
+    margin-bottom: 80px;
+    color: rgb(222, 167, 94);
+}
+
+button {
+    font-size: large;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+}
+button:hover{
+    filter: brightness(60%);
+}
+
 #container {
-    padding: 50px;
+    background-color: white;
     display: grid;
     width: 500px;
     height: 500px;
@@ -13,16 +43,62 @@ body {
     max-height: 500px;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
+    border-style: solid;
 }
+.capsule {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttonsContainer, .slideContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+#buttonsContainer {
+    gap: 10px;
+}
+
 .gridCell {
     outline: .5px solid lightgrey;
     text-align: center;
 }
-
-button {
-    width: 150px;
-    height: 50px;
-    padding: 10px;
-    border-radius: 20px;
-    text-align: center;
+ 
+#color {
+    color: white;
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
 }
+
+#noColor{
+    color: white;
+    background: black;
+}
+
+
+.slider {
+    -webkit-appearance: none;  
+    appearance: none;
+    height: 10px; 
+    background: #d3d3d3; 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1; 
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 25px; 
+    height: 25px; 
+    background: #00784c; 
+    cursor: pointer;
+  }

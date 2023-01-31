@@ -104,7 +104,7 @@ slider.oninput = function() {
 }
 
 const resetButton = document.getElementById('reset');
-resetButton.innerText = "Reset Canvas";
+resetButton.innerText = "Reset";
 resetButton.addEventListener('click', () => {
     resetPaint();
 });
